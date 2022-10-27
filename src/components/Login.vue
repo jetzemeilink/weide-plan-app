@@ -1,24 +1,21 @@
 <template>
-  <div class="container">
+  <!-- <div class="container">
     <p class="text-lg font-bold">Login</p>
     <div class="form-control">
       <label class="input-group p-2 ">
         <span>Email</span>
-        <input type="text" class="input input-md input-bordered" />
+        <input type="text" v-model="email" class="input input-md input-bordered" />
       </label>
       <label class="input-group p-2">
         <span>Password</span>
-        <input type="password" class="input input-md input-bordered" />
+        <input type="password" v-model="password" class="input input-md input-bordered" />
       </label>
-      <button class="btn btn-primary m-4">Log in</button>
+      <button class="btn btn-primary m-4" @click="submit">Log in</button>
     </div>
-  </div>
+  </div> -->
 </template>
 
-<script lang="ts">
-export default {
-  
-}
+<script setup lang="ts">
 </script>
 <style>
 .container {
