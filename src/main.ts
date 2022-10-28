@@ -1,13 +1,17 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
 import router from './router'
 import axios from 'axios'
-import VueAxios from 'vue-axios'
+import { loadFonts } from './plugins/webfontloader'
+import vuetify from './plugins/vuetify'
+import { createPinia } from 'pinia'
+
+loadFonts()
+
+const pinia = createPinia();
 
 createApp(App)
-.use(router)
-.use(VueAxios, axios)
-.mount('#app')
-
-axios.defaults.baseURL = import.meta.env.VITE_API_ENDPOINT
+  .use(router)
+  .use(vuetify)
+  .use(pinia)
+  .mount('#app')
