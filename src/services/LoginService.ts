@@ -5,6 +5,10 @@ export class LoginService extends HttpService{
 
 
   public login(email: string, password: string): Promise<LoginResponse> {
-      return this.post('/login_check', {email, password});
+      const result = this.post('/login_check', {email, password});
+      
+      result.then(data => console.log(data))
+
+      return result;
   }
 }

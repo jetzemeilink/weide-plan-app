@@ -18,9 +18,7 @@ export class MainApi extends HttpService {
   private handleRequest = (config: AxiosRequestConfig) => {
 
     //@ts-ignore
-    config.headers.Authorization = `Bearer ${this.securityStore.userJwtToken}`;
-
-    // check why the bearer token is not being set
+    config.headers['Authorization'] = `Bearer ${this.securityStore.userJwtToken}`;
 
     return config;
   }

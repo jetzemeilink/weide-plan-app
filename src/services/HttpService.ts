@@ -20,14 +20,9 @@ export class HttpService {
 
   protected get(url: string): Promise<any> {
     return this.httpInstance.get(url)
-    .then(result => console.log(result))
-    .catch(error => console.log(error));
   }
 
   protected post(url: string, requestData: any): Promise<any> {
     return this.httpInstance.post(url, requestData)
-    .then(response => response.data)
-    .catch(error => error);
   }
-
 }
