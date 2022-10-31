@@ -48,6 +48,7 @@
 <script setup lang="ts">
 import { Ref, ref } from '@vue/reactivity'
 import { required, emailRule, passwordRule} from "../helpers/validationRules"
+import router from '../router'
 import { AddressService, LoginService } from '../services'
 import {useSecurityStore} from "../stores/SecurityStore";
 
@@ -66,6 +67,8 @@ import {useSecurityStore} from "../stores/SecurityStore";
       const result = await loginService.login(email.value, password.value);
 
       securityStore.setSecurity(result.token);
+
+      router.push('./dashboard')
     } catch (error){
       console.log(error)
       throw new Error('Login authentication failed, please try again');

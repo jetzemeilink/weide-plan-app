@@ -1,35 +1,33 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import Home from "../views/Home.vue";
-import About from "../views/About.vue";
-import PageNotFound from "../views/PageNotFound.vue";
 import Login from "../components/Login.vue";
+import Dashboard from "../views/Dashboard.vue"
+import { useSecurityStore } from "../stores/SecurityStore"
 
+;
 const routes: RouteRecordRaw[] = [
   {
-    path: '/',
-    name: 'home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: About
-  },
-  {
     path: '/login',
-    name: 'login',
+    name: 'Login',
     component: Login
   },
   {
-    path: '/:catchAll(.*)*',
-    name: "PageNotFound",
-    component: PageNotFound,
-  },
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard
+  }
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes
+})
+
+router.beforeEach((to, from) => {
+  const securityStore = useSecurityStore();
+
+  if (!securityStore.isAuthenticated && to.name !== 'Login') {
+    return { name: 'Login' }
+  }
 })
 
 export default router;
