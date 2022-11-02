@@ -1,8 +1,8 @@
 <template>
-    <v-container fill-height class="background--photo d-flex "> 
+    <v-container fill-height class="background--photo d-flex"> 
 <v-row align="center" justify=center>
-  <v-col cols="6">
-    <v-card  class="justify-self-center">
+  <v-col cols="4">
+    <v-card >
     <v-card-title>
       Log In
     </v-card-title>
@@ -28,6 +28,7 @@
       </v-row>
     </v-card-text>
     <v-card-actions>
+      <v-spacer></v-spacer>
       <v-btn
       color="success"
       class="mr-4"
@@ -35,21 +36,19 @@
     >
       Log In
     </v-btn>
-    <v-btn @click="getAddress">Get address</v-btn>
     </v-card-actions>
   </v-form>
   </v-card>
   </v-col>
 </v-row>
-</v-container>
-   
+</v-container>   
 </template>
 
 <script setup lang="ts">
 import { Ref, ref } from '@vue/reactivity'
 import { required, emailRule, passwordRule} from "../helpers/validationRules"
 import router from '../router'
-import { AddressService, LoginService } from '../services'
+import { LoginService } from '../services'
 import {useSecurityStore} from "../stores/SecurityStore";
 
   let email: Ref<string> = ref('');
@@ -60,7 +59,6 @@ import {useSecurityStore} from "../stores/SecurityStore";
   }
   const securityStore = useSecurityStore();
   const loginService = new LoginService();
-  const addressService = new AddressService();
 
   async function submit(): Promise<void> {
     try {
@@ -74,15 +72,12 @@ import {useSecurityStore} from "../stores/SecurityStore";
       throw new Error('Login authentication failed, please try again');
     } 
 }
-
-  async function getAddress(): Promise<void> {
-    const result = await addressService.getAddress();
-    console.log(result);
-  }
 </script>
 <style scoped>
 
 .background--photo {
+  width: 100%;
+  height: 100%;
   background-image: url('../../public/achtergrond.jpg');
   background-size: cover;
 }
