@@ -4,6 +4,7 @@
       <NavBar></NavBar>
   
   <router-view></router-view>
+  <
 </v-main>
 
   </v-app>
@@ -18,9 +19,6 @@ export default defineComponent({
   name: 'App',
   components: {
     NavBar,
-  },
-  provide: {
-    loginService: new LoginService(),
   }
 })
 </script>
