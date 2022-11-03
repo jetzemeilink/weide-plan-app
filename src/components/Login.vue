@@ -72,6 +72,10 @@ import {useSecurityStore} from "../stores/SecurityStore";
       throw new Error('Login authentication failed, please try again');
     } 
 }
+
+function testMe(arg: string): string {
+  return `hello ${arg}`;
+}
 </script>
 <style scoped>
 

@@ -1,4 +1,4 @@
-export interface UserView {
+export interface User {
   email: string;
   roles: string[]
 }

@@ -1,11 +1,11 @@
 import { defineStore } from "pinia";
-import { UserView } from "../types/interface/view/UserView"
+import { User } from "../types/interface/view"
 import jwt_decode from "jwt-decode"
 
 export const useSecurityStore = defineStore('security', {
     state: () => ({
       security: {
-        user: {} as UserView,
+        user: {} as User,
         jwtToken: '',
         isUserAuthenticated: false
       }
@@ -13,7 +13,7 @@ export const useSecurityStore = defineStore('security', {
     actions: {
       setSecurity(token: string): void {
 
-        const user: UserView = jwt_decode(token);
+        const user: User = jwt_decode(token);
 
         this.security.user.email = user.email;
         this.security.user.roles = user.roles;
@@ -22,7 +22,7 @@ export const useSecurityStore = defineStore('security', {
       }
     },
     getters: {
-      user: (state): UserView => {
+      user: (state): User => {
         return state.security.user
       },
       userJwtToken: (state): string => {

@@ -6,6 +6,6 @@ export class AddressService extends MainApi {
   }
 
   public getAddress(): Promise<any> {
-    return this.httpInstance.get('/address/4');
+    return this.get('/address/4');
   }
 }

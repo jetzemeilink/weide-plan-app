@@ -6,11 +6,6 @@
   </v-card>
  </v-container>
 </template>
-<script lang="ts">
-export default {
-  
-}
+<script setup lang="ts">
+
 </script>
-<style lang="">
-  
-</style>

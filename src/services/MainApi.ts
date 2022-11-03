@@ -6,7 +6,7 @@ export class MainApi extends HttpService {
   private securityStore = useSecurityStore();
 
     public constructor() {
-      super("https://127.0.0.1:8000/api/v1")
+      super("https://127.0.0.1:8000/api/v1/")
 
       this.initializeRequestIntercepter();
   }
