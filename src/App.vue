@@ -4,7 +4,6 @@
       <NavBar></NavBar>
   
   <router-view></router-view>
-  <
 </v-main>
 
   </v-app>
